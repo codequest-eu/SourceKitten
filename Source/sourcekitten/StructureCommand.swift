@@ -44,6 +44,10 @@ struct StructureCommand: CommandProtocol {
             print(Structure(file: File(contents: options.text)))
             return .success()
         }
+        if let text = readLine() {
+            print(Structure(file: File(contents: text)))
+            return .success()
+        }
         return .failure(
             .invalidArgument(description: "either file or text must be set when calling structure")
         )
